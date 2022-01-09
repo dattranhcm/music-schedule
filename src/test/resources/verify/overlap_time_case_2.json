@@ -1,0 +1,26 @@
+[
+  {
+    "band" : "Soundgarden",
+    "start" : "1993-05-25T09:00:00Z",
+    "finish" : "1993-05-25T14:50:00Z",
+    "priority" : 2
+  },
+  {
+    "band" : "Pearl Jam",
+    "start" : "1993-05-25T14:15:00Z",
+    "finish" : "1993-05-25T14:35:00Z",
+    "priority" : 1
+  },
+  {
+    "band" : "Modern Talking",
+    "start" : "1993-05-25T09:15:00Z",
+    "finish" : "1993-05-25T15:35:00Z",
+    "priority" : 1
+  },
+  {
+    "band" : "Tokyo Square",
+    "start" : "1993-05-25T15:15:00Z",
+    "finish" : "1993-05-25T16:35:00Z",
+    "priority" : 6
+  }
+]
