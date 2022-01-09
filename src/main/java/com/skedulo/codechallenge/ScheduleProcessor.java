@@ -37,8 +37,6 @@ public class ScheduleProcessor {
             musicBandScheduleMap.put(bandSchedule.getPriority(), ls);
         });
 
-        while (musicBandScheduleMap.values().remove(Collections.EMPTY_LIST));
-
         musicBandScheduleMap.forEach((k, v) -> sortByStartTime(v));
 
         int highestPriorityIndex = getHighestPriorityIndex(musicBandScheduleMap);
@@ -81,16 +79,16 @@ public class ScheduleProcessor {
         for(int i = 0; i < availableSlots.size(); i++) {
             AvailableSlot availableSlot = availableSlots.get(i);
             if(i == 0) {
-                checkFistAvailbeRangeTime(musicBandSchedule, availableSlot);
+                checkFistAvailableRangeTime(musicBandSchedule, availableSlot);
             } else if (i == availableSlots.size() - 1) {
-                checkLastVailableRangeTime(musicBandSchedule, availableSlot);
+                checkLastAvailableRangeTime(musicBandSchedule, availableSlot);
             } else {
                 checkMiddleAvailableRangeTime(musicBandSchedule, availableSlot);
             }
         }
         refreshAvailableSlot();
     }
-    private static void checkFistAvailbeRangeTime(MusicBandSchedule musicBandSchedule, AvailableSlot availableSlot) {
+    private static void checkFistAvailableRangeTime(MusicBandSchedule musicBandSchedule, AvailableSlot availableSlot) {
         if(musicBandSchedule.isStartTimeBefore(availableSlot.getStart())
                 && musicBandSchedule.isFinishTimeBefore(availableSlot.getStart())) {
             finalSchedule.add(musicBandSchedule);
@@ -147,7 +145,7 @@ public class ScheduleProcessor {
         }
     }
 
-    private static void checkLastVailableRangeTime(MusicBandSchedule musicBandSchedule, AvailableSlot availableSlot) {
+    private static void checkLastAvailableRangeTime(MusicBandSchedule musicBandSchedule, AvailableSlot availableSlot) {
         if(musicBandSchedule.isStartTimeAfter(availableSlot.getEnd())) {
             finalSchedule.add(musicBandSchedule);
         } else if (musicBandSchedule.isStartTimeBefore(availableSlot.getEnd()) &&
