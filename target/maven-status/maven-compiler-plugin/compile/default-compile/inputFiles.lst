@@ -1,5 +1,5 @@
-F:\BackendProgram\music-schedule\src\main\java\com\skedulo\codechallenge\dto\ActsSchedule.java
-F:\BackendProgram\music-schedule\src\main\java\com\skedulo\codechallenge\ScheduleProcessor.java
-F:\BackendProgram\music-schedule\src\main\java\com\skedulo\codechallenge\utils\IOScheduleSupport.java
-F:\BackendProgram\music-schedule\src\main\java\com\skedulo\codechallenge\utils\ISO8601Utils.java
-F:\BackendProgram\music-schedule\src\main\java\com\skedulo\codechallenge\dto\AvailableSlot.java
+F:\BackendProgram\New folder\music-schedule\src\main\java\com\skedulo\codechallenge\dto\MusicBandSchedule.java
+F:\BackendProgram\New folder\music-schedule\src\main\java\com\skedulo\codechallenge\utils\IOScheduleSupport.java
+F:\BackendProgram\New folder\music-schedule\src\main\java\com\skedulo\codechallenge\ScheduleProcessor.java
+F:\BackendProgram\New folder\music-schedule\src\main\java\com\skedulo\codechallenge\dto\AvailableSlot.java
+F:\BackendProgram\New folder\music-schedule\src\main\java\com\skedulo\codechallenge\utils\ISO8601Utils.java

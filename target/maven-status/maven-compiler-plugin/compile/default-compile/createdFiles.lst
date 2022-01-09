@@ -1,10 +1,10 @@
 com\skedulo\codechallenge\ScheduleProcessor.class
 com\skedulo\codechallenge\utils\IOScheduleSupport.class
 com\skedulo\codechallenge\ScheduleProcessor$3.class
-com\skedulo\codechallenge\dto\ActsSchedule$ActsScheduleBuilder.class
 com\skedulo\codechallenge\ScheduleProcessor$2.class
+com\skedulo\codechallenge\dto\MusicBandSchedule.class
 com\skedulo\codechallenge\ScheduleProcessor$1.class
-com\skedulo\codechallenge\dto\ActsSchedule.class
 com\skedulo\codechallenge\dto\AvailableSlot.class
 com\skedulo\codechallenge\utils\ISO8601Utils.class
+com\skedulo\codechallenge\dto\MusicBandSchedule$MusicBandScheduleBuilder.class
 com\skedulo\codechallenge\utils\IOScheduleSupport$1.class
