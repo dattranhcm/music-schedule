@@ -14,20 +14,9 @@ public class ScheduleProcessor {
     public static List<AvailableSlot> availableSlots = new ArrayList<>();
 
     /**
-     * Temporary allocate slot of band music schedule base on priority, will remove those slot unuse after fill the input
+     * Temporary allocate slot of band music schedule base on priority
      */
-    private static Map<Integer, ArrayList<MusicBandSchedule>> actsScheduleMap = new LinkedHashMap<>(){{
-        put(10, new ArrayList<>());
-        put(9, new ArrayList<>());
-        put(8, new ArrayList<>());
-        put(7, new ArrayList<>());
-        put(6, new ArrayList<>());
-        put(5, new ArrayList<>());
-        put(4, new ArrayList<>());
-        put(3, new ArrayList<>());
-        put(2, new ArrayList<>());
-        put(1, new ArrayList<>());
-    }};
+    private static Map<Integer, ArrayList<MusicBandSchedule>> musicBandScheduleMap = new LinkedHashMap<>();
 
     @SneakyThrows
     public static void main(String[] args) {
@@ -36,44 +25,43 @@ public class ScheduleProcessor {
             return;
         }
         String inputFilePath = args[0];
-
         Path path = Paths.get(inputFilePath);
         String fileName = IOScheduleSupport.getNameWithoutExtension(path.getFileName().toString());
         String outputDestination = path.getParent().toString();
 
         ArrayList<MusicBandSchedule> musicBandSchedules = IOScheduleSupport.readInputFile(path.toString());
         sortByPriority(musicBandSchedules);
-        musicBandSchedules.forEach(i -> {
-            ArrayList<MusicBandSchedule> ls =  actsScheduleMap.get(i.getPriority());
-            ls.add(i);
-            actsScheduleMap.put(i.getPriority(), ls);
+        musicBandSchedules.forEach(bandSchedule -> {
+            ArrayList<MusicBandSchedule> ls = new ArrayList<>();
+            ls.add(bandSchedule);
+            musicBandScheduleMap.put(bandSchedule.getPriority(), ls);
         });
 
-        while (actsScheduleMap.values().remove(Collections.EMPTY_LIST));
+        while (musicBandScheduleMap.values().remove(Collections.EMPTY_LIST));
 
-        actsScheduleMap.forEach((k, v) -> sortByStartTime(v));
+        musicBandScheduleMap.forEach((k, v) -> sortByStartTime(v));
 
-        int highestPriorityIndex = getHighestPriorityIndex(actsScheduleMap);
-        actsScheduleMap.get(highestPriorityIndex).forEach((v -> finalSchedule.add(v)));
+        int highestPriorityIndex = getHighestPriorityIndex(musicBandScheduleMap);
+        musicBandScheduleMap.get(highestPriorityIndex).forEach((v -> finalSchedule.add(v)));
         refreshAvailableSlot();
         processSchedule(finalSchedule);
 
-        actsScheduleMap.forEach((k, v) -> {
+        musicBandScheduleMap.forEach((k, v) -> {
             if(k == highestPriorityIndex) return;
             processSchedule(v);
         });
 
         IOScheduleSupport.writeResultFileActsScheduleTest(finalSchedule,
                 outputDestination + "\\" + fileName + ".expected.json");
-        System.out.println("Please come: " + outputDestination + "\\" + fileName + ".optimal.json.expected to see output!");
+        System.out.println("Please come: " + outputDestination + "\\" + fileName + ".expected.json to see output!");
     }
 
 
-    private static int getHighestPriorityIndex(Map<Integer, ArrayList<MusicBandSchedule>> actsScheduleMap)
+    private static int getHighestPriorityIndex(Map<Integer, ArrayList<MusicBandSchedule>> musicBandScheduleMap)
     {
         int count = 1;
         for (Map.Entry<Integer, ArrayList<MusicBandSchedule>> entry :
-                actsScheduleMap.entrySet()) {
+                musicBandScheduleMap.entrySet()) {
             if (count == 1) {
                 return entry.getKey();
             }

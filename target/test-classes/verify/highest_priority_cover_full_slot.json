@@ -1,0 +1,20 @@
+[ 
+  { 
+    "band" : "Modern Talking",
+    "start" : "2022-01-01T11:00:00Z", 
+    "finish" : "2022-01-01T11:50:00Z", 
+    "priority" : 1 
+  },
+  { 
+    "band" : "Tokyo Square",
+    "start" : "2022-01-01T12:00:00Z", 
+    "finish" : "2022-01-01T12:20:00Z", 
+    "priority" : 1 
+  },
+  { 
+    "band" : "Boney M",
+    "start" : "2022-01-01T09:00:00Z", 
+    "finish" : "2022-01-01T12:50:00Z", 
+    "priority" : 2 
+  }
+]
